@@ -1,0 +1,34 @@
+# Stage-1 JSCC reconstruction-first training config.
+resolution: 384
+batch_size: 4
+
+# Higher channel budget than the original 4/2/2 setup.
+# Channels are computed as round(c_* 64): base=16, sem=8, fid=8.
+c_base: 0.25
+c_sem: 0.125
+c_fid: 0.125
+sem_embed_len: 16
+
+# Wider residual JSCC backbone.
+jscc_width: 128
+jscc_res_blocks: 2
+
+# Lower img2img noise for visual reconstruction fidelity.
+strength: 0.8
+num_inference_steps: 25
+guidance_scale: 1.0
+k_samples: 1
+
+# Start with a cleaner channel so the latent autoencoding problem is learnable.
+lr: 5e-5
+epochs: 30
+snr_train_min: 15.0
+snr_train_max: 25.0
+
+# Put more weight on native latent reconstruction.
+lambda_latent: 1.0
+lambda_sem_tok: 1.0
+lambda_sem_cos: 1.0
+lambda_latent_fid: 1.0
+
+output_dir: ./runs/stage1/test

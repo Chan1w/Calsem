@@ -1,0 +1,20 @@
+# Evaluation config. Must match the stage-1 JSCC architecture.
+resolution: 384
+batch_size: 2
+
+c_base: 0.25
+c_sem: 0.125
+c_fid: 0.125
+sem_embed_len: 16
+jscc_width: 128
+jscc_res_blocks: 2
+
+strength: 0.8
+num_inference_steps: 25
+guidance_scale: 1.0
+k_samples: 1
+mc_samples: 1
+
+lambda_R: 0.1
+lambda_T: 0.1
+sem_fail_threshold: 0.5

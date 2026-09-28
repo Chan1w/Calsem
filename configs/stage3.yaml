@@ -1,0 +1,20 @@
+# Stage-3 temperature calibration config. JSCC params must match stage1.
+resolution: 384
+batch_size: 2
+
+c_base: 0.25
+c_sem: 0.125
+c_fid: 0.125
+sem_embed_len: 16
+jscc_width: 128
+jscc_res_blocks: 2
+
+strength: 0.12
+num_inference_steps: 25
+guidance_scale: 1.0
+k_samples: 1
+mc_samples: 1
+
+output_dir: ./runs/stage3
+jscc_ckpt: ./runs/stage1/stage1_jscc_test.pt
+risk_head_ckpt: ./runs/stage2/stage2_risk_head.pt
